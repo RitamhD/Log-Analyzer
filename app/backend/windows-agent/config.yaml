@@ -1,0 +1,22 @@
+agent:
+  agent_id: "win-agent-01"
+  hostname: null
+
+collector:
+  channels:
+    - "System"
+    - "Application"
+    # - "Security"
+  poll_interval_seconds: 0.8  # smaller = more real-time
+
+transport:
+  websocket_url: "ws://localhost:8000/events/live"
+  analyze_url: "http://localhost:8000/analyze"
+  ws_reconnect_backoff: 2
+
+batch:
+  interval_seconds: 5
+
+security:
+  auth_token: "REPLACE_WITH_TOKEN"
+  verify_tls: true

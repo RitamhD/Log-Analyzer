@@ -1,0 +1,4 @@
+/venv
+/LLM_training
+
+__pycache__/
