@@ -10,7 +10,6 @@ from batch_worker import BatchWorker
 def load_config(path="config.yaml"):
     with open(path, "r") as f:
         cfg = yaml.safe_load(f)
-    # defaults
     if not cfg.get("agent"):
         cfg["agent"] = {}
     if not cfg["agent"].get("hostname"):
@@ -33,8 +32,8 @@ def main():
     # WebSocket client for live streaming
     ws_url = cfg.get("transport", {}).get("websocket_url")
     auth_token = cfg.get("security", {}).get("auth_token")
-    ws_client = WebSocketClient(ws_url, logger, auth_token=auth_token, on_message=None,
-                                reconnect_backoff=cfg.get("transport", {}).get("ws_reconnect_backoff", 2))
+    ws_client = WebSocketClient(ws_url, logger, auth_token=auth_token, on_message=None, 
+                            reconnect_backoff=cfg.get("transport", {}).get("ws_reconnect_backoff", 2))
     ws_client.start()
 
     # We will duplicate events: forwarder takes events from collector (event_queue),

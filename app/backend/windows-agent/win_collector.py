@@ -89,7 +89,7 @@ class WindowsEventCollector:
 
                             item = {
                                 "internal_id": gen_id(),
-                                "agent_id": None,
+                                "agent_id": "win-agent-01",
                                 "hostname": get_hostname(),
                                 "channel": ch,
                                 "record_number": ev.RecordNumber,

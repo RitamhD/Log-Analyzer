@@ -14,7 +14,7 @@ def setup_logger(name="win-agent", level=logging.INFO):
     return logger
 
 def now_iso():
-    return datetime.utcnow().isoformat() + "Z"
+    return datetime.now().isoformat() + "Z"
 
 def gen_id():
     return str(uuid.uuid4())
